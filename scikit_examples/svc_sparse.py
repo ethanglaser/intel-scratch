@@ -46,12 +46,14 @@ if __name__ == "__main__":
   num_samples = 1000
   num_features = 1000
 
+  # Initialize sparse matrix for training, randomly set some values
   X = lil_matrix((num_samples, num_features))
   X[0, :100] = rand(100)
   X[1, 100:200] = X[0, :100]
   X.setdiag(rand(1000))
   X = X.tocsr()
 
+  # Intialize sparse and non-sparse matricies for inference
   sparse_matrix = lil_matrix((1000, 1000))
   sparse_matrix.setdiag(rand(1000))
   sparse_matrix = sparse_matrix.tocsr()
